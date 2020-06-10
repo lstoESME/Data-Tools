@@ -31,7 +31,19 @@ and parenthesis rules. (add some cases in unit testing)
 
 
 def parenthesis(s):
-    pass
+    """This function will check if a string is ok with parenthesis comon rules"""
+
+    counter = 0
+
+    for character in s:
+        if character == '(':
+            counter+= 1
+        elif character == ')':
+            counter == -1
+    if counter == -1:
+        return False
+    else:
+        return False
 
 
 def brackets(s):

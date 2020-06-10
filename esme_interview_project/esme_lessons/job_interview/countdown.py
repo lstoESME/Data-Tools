@@ -17,18 +17,70 @@ Your goal is to build a Countdown generator.
 You will have to create the 3 following function and add their respective unit test (and docstrings).
 
 """
-
+import random
 
 def generate_numbers_list(n):
-    pass
+    """
+    This function will generate n random number.
+
+    :param int n: number of generate number.
+    :return: list of 5 random numbers.
+    :rtype: list.
+
+    """
+    rand = [random.randint(0,1000) for i in range(n)]
+    return rand
+
+#numbers = generate_numbers_list(5)
+#print(numbers)
 
 
 def generate_random_operations(m):
-    pass
+    """
+
+    This function will generate a random operations.
+    :param int m: Number of operations.
+    :return: a list of m random operations
+    :rtype: list[string]
+
+    """
+
+    operation = '+-*/'
+
+    rnd_operations = random.choices(operation, k=m)
+
+    return rnd_operations
+
+#operation = generate_random_operations(4)
+#print(operation)
 
 
 def generate_result(numbers_list, operations_list):
-    pass
+    """
+
+    This function will generate m random operation.
+    :param list numbers_list: list of 5 random numbers.
+    :param list operation_list: list of m random operations.
+    :return: result of the operation.
+    :rtype: int
+
+    """
+
+    result = numbers_list[0]
+    for i,operation in enumerate(operations_list) :
+        """enumerate : index + valeur de l'item de la liste"""
+        if operation == '+':
+            result += numbers_list[i+1]
+        if operation == '-':
+            result -= numbers_list[i+1]
+        if operation == '*':
+            result *= numbers_list[i+1]
+        if operation == '/':
+            result /= numbers_list[i+1]
+    return result
+
+
+#print(generate_result(numbers, operation))
 
 
 def countdown_workflow(n=5):

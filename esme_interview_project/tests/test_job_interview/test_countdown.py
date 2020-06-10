@@ -27,9 +27,14 @@ class TestCountdown(unittest.TestCase):
 
     def test_generate_random_operations(self):
         # Given
+        m = 4
         # When
+        rand = generate_random_operations(m)
         # Then
-        pass
+        self.assertEqual(len(rand),m)
+        for operator in rand :
+            assert operator '+-*/'
+            #vérifie que l'opérateur appartient à la liste '+-*/'
 
     def test_generate_result(self):
         # Given
