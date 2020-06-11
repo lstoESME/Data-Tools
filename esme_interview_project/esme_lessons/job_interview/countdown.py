@@ -28,8 +28,10 @@ def generate_numbers_list(n):
     :rtype: list.
 
     """
-    rand = [random.randint(0,1000) for i in range(n)]
-    return rand
+    result = []
+    for i in range(n):
+        result.append(random.randint(0,1000))
+    return result
 
 #numbers = generate_numbers_list(5)
 #print(numbers)
@@ -47,7 +49,7 @@ def generate_random_operations(m):
 
     operation = '+-*/'
 
-    rnd_operations = random.choices(operation, k=m)
+    rnd_operations = random.choices(operation, m)
 
     return rnd_operations
 
@@ -71,11 +73,11 @@ def generate_result(numbers_list, operations_list):
         """enumerate : index + valeur de l'item de la liste"""
         if operation == '+':
             result += numbers_list[i+1]
-        if operation == '-':
+        elif operation == '-':
             result -= numbers_list[i+1]
-        if operation == '*':
+        elif operation == '*':
             result *= numbers_list[i+1]
-        if operation == '/':
+        elif operation == '/':
             result /= numbers_list[i+1]
     return result
 
